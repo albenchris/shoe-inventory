@@ -14,5 +14,5 @@ interface ShoeDao {
 
     @Query("DELETE FROM shoe_table")
     suspend fun deleteAll()
-    
+
 }
