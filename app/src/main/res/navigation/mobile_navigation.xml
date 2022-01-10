@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mobile_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/shoeListFragment">
 
+    <fragment
+        android:id="@+id/shoeListFragment"
+        android:name="com.example.shoeinventorymanagement.ui.shoes.list.ShoeListFragment"
+        android:label="Shoes"
+        tools:layout="@layout/shoe_list_fragment" />
+    <fragment
+        android:id="@+id/addShoeFragment"
+        android:name="com.example.shoeinventorymanagement.ui.shoes.add.AddShoeFragment"
+        android:label="Add a Shoe"
+        tools:layout="@layout/add_shoe_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.shoeinventorymanagement.ui.settings.SettingsFragment"
+        android:label="Settings" />
 </navigation>

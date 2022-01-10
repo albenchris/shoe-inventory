@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-<!--     TODO: add icons-->
-
     <item
-        android:id="@+id/allShoesListFragment"
+        android:id="@+id/shoeListFragment"
         android:title="All Shoes"
         android:icon="@drawable/ic_baseline_view_list_24"
         />
