@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "shoe_table")
 data class Shoe(
-    @PrimaryKey @ColumnInfo(name = "id") val id : Int,
+    @PrimaryKey @ColumnInfo(name = "id") val id : String,
     @ColumnInfo(name = "brand") val brand : String,
     @ColumnInfo(name = "type") val type : String,
     @ColumnInfo(name = "price") val price : Int,
