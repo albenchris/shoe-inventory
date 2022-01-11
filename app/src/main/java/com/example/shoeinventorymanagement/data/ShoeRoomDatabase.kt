@@ -72,9 +72,47 @@ abstract class ShoeRoomDatabase : RoomDatabase() {
             )
             shoeDao.insert(shoe)
 
+            uniqueID = UUID.randomUUID().toString()
+            shoe = Shoe(
+                id = uniqueID,
+                brand = "Reebok",
+                type = "Walking Shoes",
+                price = 185
+            )
+            shoeDao.insert(shoe)
+
+            uniqueID = UUID.randomUUID().toString()
+            shoe = Shoe(
+                id = uniqueID,
+                brand = "Reebok",
+                type = "Running Shoes",
+                price = 165
+            )
+            shoeDao.insert(shoe)
+
+            uniqueID = UUID.randomUUID().toString()
+            shoe = Shoe(
+                id = uniqueID,
+                brand = "Reebok",
+                type = "Running Shoes",
+                price = 195
+            )
+            shoeDao.insert(shoe)
+
+            uniqueID = UUID.randomUUID().toString()
+            shoe = Shoe(
+                id = uniqueID,
+                brand = "Puma",
+                type = "Walking Shoes",
+                price = 165
+            )
+            shoeDao.insert(shoe)
+
+            
 //            !!!!!!!!!!!!!!!!!!!!!!
 //            !!! ADD MORE SHOES !!!
 //            !!!!!!!!!!!!!!!!!!!!!!
+
         }
     }
 }
