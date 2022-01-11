@@ -15,22 +15,33 @@ class ShoeListFragment : Fragment() {
         fun newInstance() = ShoeListFragment()
     }
 
+    private lateinit var shoeListRecyclerView: RecyclerView
     private lateinit var viewModel: ShoeListViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.shoe_list_fragment, container, false)
+        var view : View = inflater.inflate(R.layout.shoe_list_fragment, container, false)
+
+        shoeListRecyclerView = view.findViewById(R.id.shoeListRecyclerView)
+
+
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
-        // TODO: Use the ViewModel
+//        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
 
-        val recyclerView = requireView().findViewById<RecyclerView>(R.id.shoeListRecyclerView)
-        
+
+
+
+//        viewModel = ViewModelProvider(this, )
+
+//        val recyclerView = requireView().findViewById<RecyclerView>(R.id.shoeListRecyclerView)
+
     }
 
 }
