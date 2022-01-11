@@ -2,15 +2,25 @@ package com.example.shoeinventorymanagement
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.shoeinventorymanagement.ui.shoes.list.ShoeListAdapter
+import com.example.shoeinventorymanagement.ui.shoes.list.ShoeListViewModel
+import com.example.shoeinventorymanagement.ui.shoes.list.ShoeListViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController : NavController
+
+    private val shoeListViewModel : ShoeListViewModel by viewModels {
+        ShoeListViewModelFactory(
+            (application as ShoeApplication).repository
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +36,11 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setupWithNavController(navController)
 
         setupActionBarWithNavController(navController)
+
+        val adapter = ShoeListAdapter()
+        shoeListViewModel.allShoes.observe(this) { shoes ->
+            shoes.let { adapter.submitList(it) }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

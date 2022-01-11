@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import java.util.*
+import java.util.UUID
 
 @Database(entities = arrayOf(Shoe::class), version = 1, exportSchema = false)
 abstract class ShoeRoomDatabase : RoomDatabase() {
@@ -55,6 +55,7 @@ abstract class ShoeRoomDatabase : RoomDatabase() {
             shoeDao.deleteAll()
 
             var uniqueID = UUID.randomUUID().toString()
+//            var uniqueID = "101"
             var shoe = Shoe(
                 id = uniqueID,
                 brand = "Nike",
@@ -64,6 +65,7 @@ abstract class ShoeRoomDatabase : RoomDatabase() {
             shoeDao.insert(shoe)
 
             uniqueID = UUID.randomUUID().toString()
+//            uniqueID = "102"
             shoe = Shoe(
                 id = uniqueID,
                 brand = "Nike",

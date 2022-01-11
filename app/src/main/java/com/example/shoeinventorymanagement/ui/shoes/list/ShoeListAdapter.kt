@@ -19,7 +19,12 @@ class ShoeListAdapter : ListAdapter<Shoe, ShoeListAdapter.ShoeViewHolder>(ShoeCo
 
     override fun onBindViewHolder(holder: ShoeViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.id, current.brand, current.type, current.price)
+        holder.bind(
+            current.id,
+            current.brand,
+            current.type,
+            current.price
+        )
     }
 
     class ShoeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

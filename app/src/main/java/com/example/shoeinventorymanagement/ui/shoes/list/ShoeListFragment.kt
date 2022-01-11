@@ -1,7 +1,5 @@
 package com.example.shoeinventorymanagement.ui.shoes.list
 
-import android.app.Application
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeinventorymanagement.R
-import com.example.shoeinventorymanagement.data.ShoeApplication
+import com.example.shoeinventorymanagement.ShoeApplication
 
 class ShoeListFragment : Fragment() {
 
@@ -21,12 +19,13 @@ class ShoeListFragment : Fragment() {
 
     private lateinit var shoeListRecyclerView: RecyclerView
     private val shoeListAdapter = ShoeListAdapter()
-    private lateinit var viewModel: ShoeListViewModel
 
-//    private var application = Application()
-//    private val shoeListViewModel : ShoeListViewModel by viewModels {
-//        ShoeListViewModelFactory((application as ShoeApplication).repository)
-//    }
+//    private lateinit var viewModel: ShoeListViewModel
+
+    private var application = ShoeApplication()
+    private val shoeListViewModel : ShoeListViewModel by viewModels {
+        ShoeListViewModelFactory((application).repository)
+    }
 
 
     override fun onCreateView(
@@ -38,7 +37,7 @@ class ShoeListFragment : Fragment() {
         shoeListRecyclerView = view.findViewById(R.id.shoeListRecyclerView)
         shoeListRecyclerView.hasFixedSize()
         shoeListRecyclerView.layoutManager = LinearLayoutManager(view.context)
-        shoeListRecyclerView.adapter = ShoeListAdapter()
+        shoeListRecyclerView.adapter = shoeListAdapter
 
         return view
     }
@@ -54,6 +53,9 @@ class ShoeListFragment : Fragment() {
 
 //        val recyclerView = requireView().findViewById<RecyclerView>(R.id.shoeListRecyclerView)
 
+        shoeListViewModel.allShoes.observe(viewLifecycleOwner) { shoes ->
+            shoes.let { shoeListAdapter.submitList(it) }
+        }
     }
 
 }
