@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeinventorymanagement.R
 
@@ -16,6 +17,7 @@ class ShoeListFragment : Fragment() {
     }
 
     private lateinit var shoeListRecyclerView: RecyclerView
+    private val shoeListAdapter = ShoeListAdapter()
     private lateinit var viewModel: ShoeListViewModel
 
 
@@ -26,7 +28,9 @@ class ShoeListFragment : Fragment() {
         var view : View = inflater.inflate(R.layout.shoe_list_fragment, container, false)
 
         shoeListRecyclerView = view.findViewById(R.id.shoeListRecyclerView)
-
+        shoeListRecyclerView.hasFixedSize()
+        shoeListRecyclerView.layoutManager = LinearLayoutManager(view.context)
+        shoeListRecyclerView.adapter = ShoeListAdapter()
 
         return view
     }

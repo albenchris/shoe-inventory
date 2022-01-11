@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.shoes.list.ShoeListFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Shoe List"
-        android:gravity="center"
-        />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Shoe List"-->
+<!--        android:gravity="center"-->
+<!--        />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shoeListRecyclerView"
