@@ -20,8 +20,6 @@ class ShoeListFragment : Fragment() {
     private lateinit var shoeListRecyclerView: RecyclerView
     private val shoeListAdapter = ShoeListAdapter()
 
-//    private lateinit var viewModel: ShoeListViewModel
-
     private var application = ShoeApplication()
     private val shoeListViewModel : ShoeListViewModel by viewModels {
         ShoeListViewModelFactory((application).repository)
@@ -44,14 +42,6 @@ class ShoeListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
-
-
-
-
-//        viewModel = ViewModelProvider(this, )
-
-//        val recyclerView = requireView().findViewById<RecyclerView>(R.id.shoeListRecyclerView)
 
         shoeListViewModel.allShoes.observe(viewLifecycleOwner) { shoes ->
             shoes.let { shoeListAdapter.submitList(it) }

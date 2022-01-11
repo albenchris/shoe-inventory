@@ -11,7 +11,6 @@ class ShoeApplication : Application() {
     val applicationScope = CoroutineScope(SupervisorJob())
 
     val database by lazy { ShoeRoomDatabase.getDatabase(this, applicationScope) }
-//    val database by lazy { ShoeRoomDatabase.invoke(this) }
 
     val repository by lazy { ShoeRepository(database.shoeDao()) }
 }

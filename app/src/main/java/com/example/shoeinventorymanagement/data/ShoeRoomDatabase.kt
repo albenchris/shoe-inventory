@@ -55,7 +55,6 @@ abstract class ShoeRoomDatabase : RoomDatabase() {
             shoeDao.deleteAll()
 
             var uniqueID = UUID.randomUUID().toString()
-//            var uniqueID = "101"
             var shoe = Shoe(
                 id = uniqueID,
                 brand = "Nike",
@@ -65,7 +64,6 @@ abstract class ShoeRoomDatabase : RoomDatabase() {
             shoeDao.insert(shoe)
 
             uniqueID = UUID.randomUUID().toString()
-//            uniqueID = "102"
             shoe = Shoe(
                 id = uniqueID,
                 brand = "Nike",

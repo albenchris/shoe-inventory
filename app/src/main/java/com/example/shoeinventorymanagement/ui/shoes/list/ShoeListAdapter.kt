@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeinventorymanagement.R
 import com.example.shoeinventorymanagement.data.Shoe
-//import com.google.android.material.card.MaterialCardView
 
 class ShoeListAdapter : ListAdapter<Shoe, ShoeListAdapter.ShoeViewHolder>(ShoeComparator()) {
 
@@ -28,7 +27,6 @@ class ShoeListAdapter : ListAdapter<Shoe, ShoeListAdapter.ShoeViewHolder>(ShoeCo
     }
 
     class ShoeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        private val shoeItemView : MaterialCardView = itemView.findViewById(R.id.shoeListItem)
         private val shoeItemID : TextView = itemView.findViewById(R.id.textView_id)
         private val shoeItemBrand : TextView = itemView.findViewById(R.id.textView_brand)
         private val shoeItemType : TextView = itemView.findViewById(R.id.textView_type)
@@ -43,7 +41,7 @@ class ShoeListAdapter : ListAdapter<Shoe, ShoeListAdapter.ShoeViewHolder>(ShoeCo
             shoeItemID.text = id
             shoeItemBrand.text = brand
             shoeItemType.text = type
-            shoeItemPrice.text = price.toString()
+            shoeItemPrice.text = "$${price.toString()}"
         }
 
         companion object {
