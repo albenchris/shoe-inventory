@@ -1,5 +1,6 @@
 package com.example.shoeinventorymanagement.ui.shoes.list
 
+import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeinventorymanagement.R
+import com.example.shoeinventorymanagement.data.ShoeApplication
 
 class ShoeListFragment : Fragment() {
 
@@ -21,6 +23,7 @@ class ShoeListFragment : Fragment() {
     private val shoeListAdapter = ShoeListAdapter()
     private lateinit var viewModel: ShoeListViewModel
 
+//    private var application = Application()
 //    private val shoeListViewModel : ShoeListViewModel by viewModels {
 //        ShoeListViewModelFactory((application as ShoeApplication).repository)
 //    }
@@ -33,7 +36,7 @@ class ShoeListFragment : Fragment() {
         var view : View = inflater.inflate(R.layout.shoe_list_fragment, container, false)
 
         shoeListRecyclerView = view.findViewById(R.id.shoeListRecyclerView)
-//        shoeListRecyclerView.hasFixedSize()
+        shoeListRecyclerView.hasFixedSize()
         shoeListRecyclerView.layoutManager = LinearLayoutManager(view.context)
         shoeListRecyclerView.adapter = ShoeListAdapter()
 
