@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeinventorymanagement.R
 
 class ShoeListFragment : Fragment() {
@@ -28,6 +29,8 @@ class ShoeListFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
         // TODO: Use the ViewModel
 
+        val recyclerView = requireView().findViewById<RecyclerView>(R.id.shoeListRecyclerView)
+        
     }
 
 }
