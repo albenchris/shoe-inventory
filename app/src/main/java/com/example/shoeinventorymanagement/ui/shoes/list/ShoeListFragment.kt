@@ -27,6 +27,7 @@ class ShoeListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
         // TODO: Use the ViewModel
+
     }
 
 }
