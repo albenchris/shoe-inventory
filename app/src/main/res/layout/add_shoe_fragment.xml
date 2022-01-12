@@ -5,11 +5,48 @@
     android:layout_height="match_parent"
     tools:context=".ui.shoes.add.AddShoeFragment">
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Add Shoe"
-        android:gravity="center"
+        android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edit_brand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="Brand"
+        android:inputType="textAutoComplete"
+        android:layout_margin="16dp"
+        android:textSize="18sp"
         />
+
+    <EditText
+        android:id="@+id/edit_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="Type (Running, Walking, etc.)"
+        android:inputType="textAutoComplete"
+        android:layout_margin="16dp"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/edit_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="Price"
+        android:inputType="numberDecimal"
+        android:layout_margin="16dp"
+        android:textSize="18sp"
+        />
+
+    </LinearLayout>
+
 
 </FrameLayout>
