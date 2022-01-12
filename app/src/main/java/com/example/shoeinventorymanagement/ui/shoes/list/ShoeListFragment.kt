@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeinventorymanagement.R
 import com.example.shoeinventorymanagement.ShoeApplication
+import com.example.shoeinventorymanagement.data.Shoe
 
 class ShoeListFragment : Fragment() {
 
@@ -18,7 +19,9 @@ class ShoeListFragment : Fragment() {
     }
 
     private lateinit var shoeListRecyclerView: RecyclerView
-    private val shoeListAdapter = ShoeListAdapter()
+
+    private lateinit var shoeListAdapter : ShoeListAdapter
+//    private val shoeListAdapter = ShoeListAdapter()
 
     private var application = ShoeApplication()
     private val shoeListViewModel : ShoeListViewModel by viewModels {
@@ -31,6 +34,9 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var view : View = inflater.inflate(R.layout.shoe_list_fragment, container, false)
+
+//        shoeListAdapter = ShoeListAdapter(shoeListViewModel.allShoes.value as MutableList<Shoe>)
+        shoeListAdapter = ShoeListAdapter()
 
         shoeListRecyclerView = view.findViewById(R.id.shoeListRecyclerView)
         shoeListRecyclerView.hasFixedSize()

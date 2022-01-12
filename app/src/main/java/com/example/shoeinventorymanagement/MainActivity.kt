@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.shoeinventorymanagement.data.Shoe
 import com.example.shoeinventorymanagement.ui.shoes.list.ShoeListAdapter
 import com.example.shoeinventorymanagement.ui.shoes.list.ShoeListViewModel
 import com.example.shoeinventorymanagement.ui.shoes.list.ShoeListViewModelFactory
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
 
         val adapter = ShoeListAdapter()
+//        val adapter = ShoeListAdapter(shoeListViewModel.allShoes.value as MutableList<Shoe>)
         shoeListViewModel.allShoes.observe(this) { shoes ->
             shoes.let { adapter.submitList(it) }
         }

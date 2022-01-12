@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 class ShoeRepository(private val shoeDao: ShoeDao) {
 
+//    val allShoes: Flow<MutableList<Shoe>> = shoeDao.getAllShoes()
     val allShoes: Flow<List<Shoe>> = shoeDao.getAllShoes()
 
     @Suppress("RedundantSuspendModifier")

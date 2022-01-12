@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface ShoeDao {
 
     @Query("SELECT * FROM shoe_table ORDER BY brand ASC")
+//    fun getAllShoes() : Flow<MutableList<Shoe>>
     fun getAllShoes() : Flow<List<Shoe>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

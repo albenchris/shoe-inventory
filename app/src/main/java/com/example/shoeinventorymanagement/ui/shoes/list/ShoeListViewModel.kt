@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 
 class ShoeListViewModel(private val repository: ShoeRepository) : ViewModel() {
 
+//    val allShoes: LiveData<MutableList<Shoe>> = repository.allShoes.asLiveData()
     val allShoes: LiveData<List<Shoe>> = repository.allShoes.asLiveData()
 
     fun insert(shoe: Shoe) = viewModelScope.launch {

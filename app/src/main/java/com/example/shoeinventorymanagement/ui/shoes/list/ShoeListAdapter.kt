@@ -3,6 +3,8 @@ package com.example.shoeinventorymanagement.ui.shoes.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.ListAdapter
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
@@ -10,7 +12,52 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeinventorymanagement.R
 import com.example.shoeinventorymanagement.data.Shoe
 
-class ShoeListAdapter : ListAdapter<Shoe, ShoeListAdapter.ShoeViewHolder>(ShoeComparator()) {
+class ShoeListAdapter
+//    (shoeList: MutableList<Shoe>)
+    : ListAdapter<Shoe, ShoeListAdapter.ShoeViewHolder>(ShoeComparator())
+//    ,
+//    Filterable
+{
+
+//    var shoeList : List<Shoe>
+//    lateinit var allShoesList : MutableList<Shoe>
+//
+//    init {
+//        this.shoeList = shoeList
+//        allShoesList = ArrayList()
+//        allShoesList.addAll(shoeList)
+//    }
+//
+//    override fun getFilter(): Filter {
+//        return myFilter
+//    }
+//
+//    var myFilter: Filter = object : Filter() {
+//        //Automatic on background thread
+//        override fun performFiltering(charSequence: CharSequence): FilterResults {
+//            val filteredList: MutableList<Shoe> = ArrayList()
+//            if (charSequence == null || charSequence.length == 0) {
+//                filteredList.addAll(allShoesList)
+//            } else {
+//                for (shoe in allShoesList) {
+//                    if (shoe.brand.toLowerCase().contains(charSequence.toString().toLowerCase())) {
+//                        filteredList.add(shoe)
+//                    }
+//                }
+//            }
+//            val filterResults = FilterResults()
+//            filterResults.values = filteredList
+//            return filterResults
+//        }
+//
+//        //Automatic on UI thread
+//        override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
+//            shoeList.clear()
+//            shoeList.addAll((filterResults.values as Collection<Shoe>))
+//            notifyDataSetChanged()
+//        }
+//    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoeViewHolder {
         return ShoeViewHolder.create(parent)
