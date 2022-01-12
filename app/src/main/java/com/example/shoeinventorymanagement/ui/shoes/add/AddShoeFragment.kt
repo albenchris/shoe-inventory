@@ -15,14 +15,20 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import com.example.shoeinventorymanagement.R
 import com.example.shoeinventorymanagement.ShoeApplication
 import com.example.shoeinventorymanagement.data.Shoe
 import com.example.shoeinventorymanagement.data.ShoeDao
+import com.example.shoeinventorymanagement.ui.shoes.list.ShoeListFragment
 import com.example.shoeinventorymanagement.ui.shoes.list.ShoeListViewModel
 import java.lang.RuntimeException
 import java.util.UUID
+
+
+
 
 class AddShoeFragment : Fragment() {
 
@@ -78,9 +84,21 @@ class AddShoeFragment : Fragment() {
                 val shoe = Shoe(shoeID, brand, type, price)
 
                 addShoeViewModel.insert(shoe)
-
+                navigateToShoeList()
             }
         }
     }
 
+    fun navigateToShoeList() {
+        val shoeListFragment: Fragment = ShoeListFragment()
+        val transaction = requireFragmentManager().beginTransaction()
+        transaction.replace(
+            R.id.nav_host_fragment,
+            shoeListFragment
+        )
+
+        transaction.addToBackStack(null) // if written, this transaction will be added to backstack
+
+        transaction.commit()
+    }
 }
