@@ -1,10 +1,8 @@
 package com.example.shoeinventorymanagement.ui.shoes.list
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +33,9 @@ class ShoeListFragment : Fragment() {
     ): View? {
         var view : View = inflater.inflate(R.layout.shoe_list_fragment, container, false)
 
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
 //        shoeListAdapter = ShoeListAdapter(shoeListViewModel.allShoes.value as MutableList<Shoe>)
         shoeListAdapter = ShoeListAdapter()
 
@@ -52,6 +53,11 @@ class ShoeListFragment : Fragment() {
         shoeListViewModel.allShoes.observe(viewLifecycleOwner) { shoes ->
             shoes.let { shoeListAdapter.submitList(it) }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.filter_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 }
