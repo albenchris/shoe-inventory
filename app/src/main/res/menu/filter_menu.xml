@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
 
     <item
-        android:id="@+id/search_brand"
-        android:title="Filter by brand"
-        android:icon="@drawable/ic_baseline_tune_24"
-        app:showAsAction="always|collapseActionView"
+        android:id="@+id/search_by_id"
+        android:title="Search by ID"
+        android:icon="@drawable/ic_baseline_search_24"
         app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always|collapseActionView"
         />
+
+    <item
+        android:id="@+id/button_filter"
+        android:title="Filter Shoes"
+        android:icon="@drawable/ic_baseline_tune_24"
+        app:actionViewClass="android.widget.Button"
+        app:showAsAction="always|collapseActionView"
+        />
+
 
 </menu>

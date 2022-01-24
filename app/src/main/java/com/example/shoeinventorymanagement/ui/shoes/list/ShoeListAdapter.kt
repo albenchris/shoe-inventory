@@ -13,58 +13,22 @@ import com.example.shoeinventorymanagement.R
 import com.example.shoeinventorymanagement.data.Shoe
 
 class ShoeListAdapter
-//    (shoeList: MutableList<Shoe>)
-    : ListAdapter<Shoe, ShoeListAdapter.ShoeViewHolder>(ShoeComparator())
-//    ,
-//    Filterable
+    (private val shoesList : ArrayList<Shoe>)
+    : RecyclerView.Adapter<ShoeListAdapter.ShoeViewHolder>()
+//    : ListAdapter<Shoe, ShoeListAdapter.ShoeViewHolder>(ShoeComparator())
 {
-
-//    var shoeList : List<Shoe>
-//    lateinit var allShoesList : MutableList<Shoe>
-//
-//    init {
-//        this.shoeList = shoeList
-//        allShoesList = ArrayList()
-//        allShoesList.addAll(shoeList)
-//    }
-//
-//    override fun getFilter(): Filter {
-//        return myFilter
-//    }
-//
-//    var myFilter: Filter = object : Filter() {
-//        //Automatic on background thread
-//        override fun performFiltering(charSequence: CharSequence): FilterResults {
-//            val filteredList: MutableList<Shoe> = ArrayList()
-//            if (charSequence == null || charSequence.length == 0) {
-//                filteredList.addAll(allShoesList)
-//            } else {
-//                for (shoe in allShoesList) {
-//                    if (shoe.brand.toLowerCase().contains(charSequence.toString().toLowerCase())) {
-//                        filteredList.add(shoe)
-//                    }
-//                }
-//            }
-//            val filterResults = FilterResults()
-//            filterResults.values = filteredList
-//            return filterResults
-//        }
-//
-//        //Automatic on UI thread
-//        override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
-//            shoeList.clear()
-//            shoeList.addAll((filterResults.values as Collection<Shoe>))
-//            notifyDataSetChanged()
-//        }
-//    }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoeViewHolder {
         return ShoeViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: ShoeViewHolder, position: Int) {
-        val current = getItem(position)
+        // if ListAdapter...
+//        val current = getItem(position)
+
+        // if RecyclerView.Adapter...
+        val current = shoesList[position]
+
         holder.bind(
             current.id,
             current.brand,
@@ -108,5 +72,9 @@ class ShoeListAdapter
         override fun areContentsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
             return oldItem.id == newItem.id
         }
+    }
+
+    override fun getItemCount(): Int {
+        return shoesList.size
     }
 }
