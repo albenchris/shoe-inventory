@@ -64,15 +64,16 @@ class ShoeListAdapter
         }
     }
 
-    class ShoeComparator : DiffUtil.ItemCallback<Shoe>() {
-        override fun areItemsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
-            return oldItem === newItem
-        }
-
-        override fun areContentsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
-            return oldItem.id == newItem.id
-        }
-    }
+    // if ListAdapter
+//    class ShoeComparator : DiffUtil.ItemCallback<Shoe>() {
+//        override fun areItemsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
+//            return oldItem === newItem
+//        }
+//
+//        override fun areContentsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
+//            return oldItem.id == newItem.id
+//        }
+//    }
 
     override fun getItemCount(): Int {
         return shoesList.size

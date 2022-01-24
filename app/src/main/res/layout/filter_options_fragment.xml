@@ -3,16 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.shoes.list.ShoeListFragment">
+    tools:context=".ui.shoes.list.filter.FilterOptions">
 
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/shoeListRecyclerView"
+    <ExpandableListView
+        android:id="@+id/list_brands"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_shoe_list"
-        android:padding="16dp"
+        />
+
+
+    <ExpandableListView
+        android:id="@+id/list_types"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         />
 
 
