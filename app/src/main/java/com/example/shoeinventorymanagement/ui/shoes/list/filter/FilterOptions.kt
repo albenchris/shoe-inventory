@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ExpandableListAdapter
+import android.widget.ExpandableListView
 import com.example.shoeinventorymanagement.R
 
 class FilterOptions : Fragment() {
@@ -15,6 +17,8 @@ class FilterOptions : Fragment() {
     }
 
     private lateinit var viewModel: FilterOptionsViewModel
+    private lateinit var brandsExpandList: ExpandableListView
+    private lateinit var typesExpandList: ExpandableListView
 
     private var brandArrayList: ArrayList<String> = arrayListOf<String>()
     private var typeArrayList: ArrayList<String> = arrayListOf<String>()
@@ -25,6 +29,10 @@ class FilterOptions : Fragment() {
     ): View? {
         var view: View = inflater.inflate(R.layout.filter_options_fragment, container, false)
 
+        brandsExpandList = view.findViewById(R.id.list_brands)
+        brandsExpandList.adapter = ExpandableListAdapter()
+
+        typesExpandList = view.findViewById(R.id.list_types)
 
 
         // !!!!!!!!!!!!!!!!!!!!!
