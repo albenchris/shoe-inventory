@@ -1,6 +1,7 @@
 package com.example.shoeinventorymanagement.ui.shoes.list.filter
 
 import android.content.Context
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.BaseExpandableListAdapter
 import android.widget.ExpandableListAdapter
 import android.widget.TextView
 import com.example.shoeinventorymanagement.R
+import org.w3c.dom.Text
 
 class FilterOptionsAdapter(
     private val context: Context,
@@ -15,15 +17,15 @@ class FilterOptionsAdapter(
     private val dataList: HashMap<String, List<String>>,
 ) : BaseExpandableListAdapter(){
     override fun getGroupCount(): Int {
-        TODO("Not yet implemented")
+        return this.titleList.size
     }
 
     override fun getChildrenCount(groupPosition: Int): Int {
-        TODO("Not yet implemented")
+        return this.dataList[this.titleList[groupPosition]]!!.size
     }
 
     override fun getGroup(groupPosition: Int): Any {
-        TODO("Not yet implemented")
+        return this.titleList[groupPosition]
     }
 
     override fun getChild(groupPosition: Int, childPosition: Int): Any {
@@ -31,7 +33,7 @@ class FilterOptionsAdapter(
     }
 
     override fun getGroupId(groupPosition: Int): Long {
-        TODO("Not yet implemented")
+        return groupPosition.toLong()
     }
 
     override fun getChildId(groupPosition: Int, childPosition: Int): Long {
@@ -39,7 +41,7 @@ class FilterOptionsAdapter(
     }
 
     override fun hasStableIds(): Boolean {
-        TODO("Not yet implemented")
+        return false
     }
 
     override fun getGroupView(
@@ -48,7 +50,22 @@ class FilterOptionsAdapter(
         convertView: View?,
         parent: ViewGroup?
     ): View {
-        TODO("Not yet implemented")
+        var convertView = convertView
+        val listTitle = getGroup(groupPosition) as String
+        if (convertView == null) {
+            val layoutInflater =
+                this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)
+                    as LayoutInflater
+            convertView = layoutInflater.inflate(R.layout.item_filter_list, null)
+        }
+
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // FIND A WAY TO ADAPT TO MULTIPLE LISTS instead of only list_brands
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        val listTitleTextView = convertView!!.findViewById<TextView>(R.id.list_brands)
+        listTitleTextView.setTypeface(null, Typeface.BOLD)
+        listTitleTextView.text = listTitle
+        return convertView
     }
 
     override fun getChildView(
@@ -76,7 +93,7 @@ class FilterOptionsAdapter(
     }
 
     override fun isChildSelectable(groupPosition: Int, childPosition: Int): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 
 
