@@ -30,7 +30,6 @@ class FilterOptions : Fragment() {
         var view: View = inflater.inflate(R.layout.filter_options_fragment, container, false)
 
         brandsExpandList = view.findViewById(R.id.list_brands)
-        brandsExpandList.adapter = ExpandableListAdapter()
 
         typesExpandList = view.findViewById(R.id.list_types)
 

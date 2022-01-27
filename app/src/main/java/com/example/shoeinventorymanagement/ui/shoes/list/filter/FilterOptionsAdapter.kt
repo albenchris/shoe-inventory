@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
+import android.widget.CheckBox
 import android.widget.ExpandableListAdapter
 import android.widget.TextView
 import com.example.shoeinventorymanagement.R
@@ -62,7 +63,7 @@ class FilterOptionsAdapter(
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // FIND A WAY TO ADAPT TO MULTIPLE LISTS instead of only list_brands
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        val listTitleTextView = convertView!!.findViewById<TextView>(R.id.list_brands)
+        val listTitleTextView = convertView!!.findViewById<CheckBox>(R.id.checkbox_option)
         listTitleTextView.setTypeface(null, Typeface.BOLD)
         listTitleTextView.text = listTitle
         return convertView
@@ -87,7 +88,7 @@ class FilterOptionsAdapter(
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // FIND A WAY TO ADAPT TO MULTIPLE LISTS instead of only list_brands
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        val expandedListTextView = convertView!!.findViewById<TextView>(R.id.list_brands)
+        val expandedListTextView = convertView!!.findViewById<CheckBox>(R.id.checkbox_option)
         expandedListTextView.text = expandedListText
         return convertView
     }
